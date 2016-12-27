@@ -67,7 +67,7 @@ https://github.com/anderspitman/chrome-extension-css-isolation-example
 
 Create an empty directory and add the following manifest.json:
 
-```json manifest.json
+```json
 {
   "manifest_version": 2,
   "name": "CSS Isolation",

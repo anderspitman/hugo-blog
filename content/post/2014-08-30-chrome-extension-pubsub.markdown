@@ -40,7 +40,7 @@ https://github.com/anderspitman/chromeps
 
 Add the following manifest.json:
 
-```json manifest.json
+```json
 {
   "manifest_version": 2,
   "name": "Chrome Extension PubSub",
@@ -68,7 +68,7 @@ case means any time the user opens a web page.
 The manifest references several files that we will need to create. Let's start
 with content.js:
 
-```javascript content.js
+```javascript
 var iframe = document.createElement('iframe');
 iframe.src = chrome.extension.getURL("popup.html");
 iframe.className = 'css-isolation-popup';
@@ -88,7 +88,7 @@ still interfere with the page the user visits. I'm using `css-isolation-popup`.
 That style comes from content.css, which is referenced in the manifest. Let's
 add it real quick:
 
-```css content.css
+```css
 .css-isolation-popup {
   position: fixed;
   top: 0px;
@@ -109,7 +109,7 @@ any time a message on that topic is published anywhere in chrome.
 
 Now let's add the actual popup files, popup.html and popup.js:
 
-```html popup.html
+```html
 <!doctype html>
 <html>
 
@@ -158,7 +158,7 @@ surrounding our small popup. The popup lives inside the wrapper.
 We're sourcing `popup.js` from within `popup.html`. There's no need to
 add it in the manifest. We're also including `chromeps.js`.
 
-```javascript popup.js
+```javascript
 var overlay = document.querySelector('.overlay');
 overlay.addEventListener('click', function() {
   chromeps.publish('commands', 'hide_popup');
